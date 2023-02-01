@@ -37,24 +37,6 @@ const ValidationRules = () => {
     },
     dateOfBirthdayValidationRules: {
       required: 'This field is required',
-      validate: {
-        isAdult: (value: string) => {
-          const now = Date.now();
-          const date = new Date(`${value}`.replaceAll('-', ', ')).getTime();
-          return (
-            Math.abs(now - date) / 31556926000 > 18 ||
-            'You must be over 18 years old'
-          );
-        },
-        isInRange: (value: string) => {
-          const now = Date.now();
-          const date = new Date(`${value}`.replaceAll('-', ', ')).getTime();
-          return (
-            Math.abs(now - date) / 31556926000 < 125 ||
-            'Age cant be higher than 125'
-          );
-        },
-      },
     },
     emailValidationRules: {
       required: 'This field is required',
